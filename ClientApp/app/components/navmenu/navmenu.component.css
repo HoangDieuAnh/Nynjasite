@@ -1,59 +1,73 @@
-li .glyphicon {
-    margin-right: 10px;
+/*=================================================
+||				3. Header
+==================================================*/
+			/*navbar*/
+.navbar-default .navbar-brand{
+    border: 1px solid transparent;
+    color: #60c9eb;
+    font-size: 33px;
+    padding: 10px 0px;
+    height: auto;
+    font-weight: 400;
+    letter-spacing: -1px;
+    text-transform: capitalize;
 }
-
-/* Highlighting rules for nav menu items */
-li.link-active a,
-li.link-active a:hover,
-li.link-active a:focus {
-    background-color: #4189C7;
-    color: white;
+ul.nav.navbar-nav.navbar-right{
+    margin-top: 10px;
 }
-
-/* Keep the nav menu independent of scrolling and on top of other items */
-.main-nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
+.navbar-default .navbar-brand span{
+    color: #583b54;
 }
-
-@media (min-width: 768px) {
-    /* On small screens, convert the nav menu to a vertical sidebar */
-    .main-nav {
-        height: 100%;
-        width: calc(25% - 20px);
+.navbar-default .navbar-brand:focus, .navbar-default .navbar-brand:hover{
+    color: #60c9eb;
+}
+.navbar-default {
+    background-color: #fff;
+    border-color: transparent;
+    padding: 5px 0px;
+    border-radius: 0;
+    text-transform: uppercase;
+}
+.navbar-default .navbar-nav>li>a{
+    color: #60c9eb;
+    padding-right: 20px;
+    padding-left: 20px;
+    border: 1px solid transparent;
+    font-size: 12px;
+    font-weight: 300;
+    letter-spacing: 1px;
+    transition: all .4s ease-in-out;
+}
+.navbar-default .navbar-nav>li>a:hover{
+    color: #60c9eb;
+}
+.navbar-default .navbar-nav>li>a:focus, .navbar-default .navbar-nav>li>a:hover{
+    color: #60c9eb;
+    background: #e8f9ff;
+}
+.navbar-nav>li>a {
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover{
+    background-color: transparent;
+    color: #60c9eb;
+    background: #e8f9ff;
+}
+@media (max-width: 480px){
+    .slider-item{
+        background-image: none !important;
     }
-    .navbar {
-        border-radius: 0px;
-        border-width: 0px;
-        height: 100%;
+    .slide{
+        height: auto;
     }
-    .navbar-header {
-        float: none;
+    .intro{
+        max-height: 627px;
     }
-    .navbar-collapse {
-        border-top: 1px solid #444;
-        padding: 0px;
+    .navbar-default .navbar-nav>li>a{
+        font-weight: 400;
     }
-    .navbar ul {
-        float: none;
-    }
-    .navbar li {
-        float: none;
-        font-size: 15px;
-        margin: 6px;
-    }
-    .navbar li a {
-        padding: 10px 16px;
-        border-radius: 4px;
-    }
-    .navbar a {
-        /* If a menu item's text is too long, truncate it */
-        width: 100%;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+    .navbar-default .navbar-brand{
+        padding-left: 15px;
     }
 }

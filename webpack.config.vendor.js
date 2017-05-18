@@ -2,9 +2,9 @@ const path = require('path');
 const webpack = require('webpack');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const merge = require('webpack-merge');
-
 module.exports = (env) => {
-    const extractCSS = new ExtractTextPlugin('vendor.css');
+    const extractCSS = new ExtractTextPlugin('[name].css');
+    const extractLESS = new ExtractTextPlugin('less-[name].css');
     const isDevBuild = !(env && env.prod);
     const sharedConfig = {
         stats: { modules: false },
@@ -33,6 +33,10 @@ module.exports = (env) => {
                 'event-source-polyfill',
                 'jquery',
                 'zone.js',
+                './Scripts/Library/flexslider.css',
+                './Scripts/Library/ionicons.min.css',
+                'owl.carousel'
+                
             ]
         },
         output: {
@@ -51,7 +55,11 @@ module.exports = (env) => {
         output: { path: path.join(__dirname, 'wwwroot', 'dist') },
         module: {
             rules: [
-                { test: /\.css(\?|$)/, use: extractCSS.extract({ use: isDevBuild ? 'css-loader' : 'css-loader?minimize' }) }
+                { test: /\.css(\?|$)/, use: extractCSS.extract({ use: isDevBuild ? 'css-loader' : 'css-loader?minimize' }) },
+                {
+                    test: /\.less$/i,
+                    use: extractLESS.extract([isDevBuild ? 'css-loader' : 'css-loader?minimize', 'less-loader', 'style-loader'])
+                }
             ]
         },
         plugins: [
@@ -73,7 +81,7 @@ module.exports = (env) => {
             libraryTarget: 'commonjs2',
         },
         module: {
-            rules: [ { test: /\.css(\?|$)/, use: ['to-string-loader', isDevBuild ? 'css-loader' : 'css-loader?minimize' ] } ]
+            rules: [{ test: /\.css(\?|$)/, use: ['to-string-loader', isDevBuild ? 'css-loader' : 'css-loader?minimize' ] } ]
         },
         entry: { vendor: ['aspnet-prerendering'] },
         plugins: [
