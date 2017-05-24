@@ -33,8 +33,8 @@ module.exports = (env) => {
                 'event-source-polyfill',
                 'jquery',
                 'zone.js',
-                './Scripts/Library/flexslider.css',
-                './Scripts/Library/ionicons.min.css',
+                './Styles/Library/flexslider.css',
+                './Styles/Library/ionicons.min.css',
                 'owl.carousel'
                 
             ]

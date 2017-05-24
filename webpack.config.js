@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const merge = require('webpack-merge');
 const CheckerPlugin = require('awesome-typescript-loader').CheckerPlugin;
-
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 module.exports = (env) => {
     // Configuration in common to both client-side and server-side bundles
     const isDevBuild = !(env && env.prod);
@@ -16,21 +16,29 @@ module.exports = (env) => {
         },
         module: {
             rules: [
-                { test: /\.ts$/, include: /ClientApp/, use: ['awesome-typescript-loader?silent=true', 'angular2-template-loader'] },
+                {
+                    test: /\.ts$/,
+                    include: /ClientApp/,
+                    use: ['awesome-typescript-loader?silent=true', 'angular2-template-loader']
+                },
                 { test: /\.html$/, use: 'html-loader?minimize=false' },
                 { test: /\.css$/, use: ['to-string-loader', isDevBuild ? 'css-loader' : 'css-loader?minimize'] },
                 { test: /-standalone\.css$/, use: ['style-loader', isDevBuild ? 'css-loader' : 'css-loader?minimize'] },
-                { test: /\.less$/, use: ['to-string-loader', isDevBuild ? 'css-loader' : 'css-loader?minimize', 'less-loader'] },
+                {
+                    test: /-standalone\.less$/i,
+                    use: ExtractTextPlugin.extract({use: [isDevBuild ? 'css-loader' : 'css-loader?minimize', 'less-loader']})
+                },
+                { test: /\.component\.less$/, use: ['to-string-loader', isDevBuild ? 'css-loader' : 'css-loader?minimize', 'less-loader'] },
                 { test: /\.(png|jpg|jpeg|gif|svg)$/, use: 'url-loader?limit=25000' }
             ]
         },
-        plugins: [new CheckerPlugin()]
+        plugins: [new CheckerPlugin(), new ExtractTextPlugin('[name].css')]
     };
 
     // Configuration for client-side bundle suitable for running in browsers
     const clientBundleOutputDir = './wwwroot/dist';
     const clientBundleConfig = merge(sharedConfig, {
-        entry: { 'main-client': './ClientApp/boot-client.ts' },
+        entry: { 'main-client': ['./ClientApp/boot-client.ts', './Styles/Main/main-app-standalone.less'] },
         output: { path: path.join(__dirname, clientBundleOutputDir) },
         plugins: [
             new webpack.DllReferencePlugin({
@@ -52,7 +60,7 @@ module.exports = (env) => {
     // Configuration for server-side (prerendering) bundle suitable for running in Node
     const serverBundleConfig = merge(sharedConfig, {
         resolve: { mainFields: ['main'] },
-        entry: { 'main-server': './ClientApp/boot-server.ts' },
+        entry: { 'main-server': ['./ClientApp/boot-server.ts' ]},
         plugins: [
             new webpack.DllReferencePlugin({
                 context: __dirname,
