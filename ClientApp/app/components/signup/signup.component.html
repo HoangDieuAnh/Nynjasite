@@ -9,182 +9,161 @@
 </section>
 <!-- /.section-background -->
 
+<form [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
+    <section class="section-wrapper contact-and-map">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-centre">
+                    <h2 class="section-title">
+                        Sign up
+                    </h2>
+                    <div class="form">
+                        <div class="input-group">
+                            <input class="form-control border-radius border-right" type="text" formControlName="name" name="name" placeholder="Full name">
+                            <span class="input-group-addon  border-radius custom-addon">
+                                <i class="ion-person"></i>
+                            </span>
+                        </div>
+                        <div class="input-group">
+                            <input class="form-control border-radius border-right" name="email" type="email" formControlName="email" placeholder="Email">
 
-<section class="section-wrapper contact-and-map">
-    <div class="container">
+                            <span class="input-group-addon  border-radius custom-addon">
+                                <i class="ion-email"></i>
+                            </span>
+                        </div>
+                        <div class="input-group">
+                            <input class="form-control border-radius border-right" type="tel" name="phoneNumber"  formControlName="phoneNumber" placeholder="Phone number">
+
+                            <span class="input-group-addon  border-radius custom-addon">
+                                <i class="ion-ios-telephone"></i>
+                            </span>
+                        </div>
+                        <div class="input-group">
+                            <input class="form-control border-radius border-right" type="password" name="password" formControlName="password" placeholder="Password">
+                            <span class="input-group-addon  border-radius custom-addon">
+                                <i class="ion-star"></i>
+                            </span>
+                        </div>
+                        <div class="input-group">
+                            <input class="form-control border-radius border-right" type="password" placeholder="Retype password" >
+                            <span class="input-group-addon  border-radius custom-addon">
+                                <i class="ion-star"></i>
+                            </span>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <section class="contacts column-wrapper">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-4">
+                    <div class="contact">
+                        <div class="contact-icon">
+                            <i class="ion-person-stalker"></i>
+                        </div>
+                        <!--<div class="contact-name">
+                            Address
+                        </div>-->
+                        <div class="contact-detail">
+                            Do you have the right experience to verify skills?
+                        </div>
+                        <button type="submit" class="btn sr-button client-type btn-default border-radius custom-button dark-blue">Create assessor profile</button>
+                    </div>
+                    <!-- /.contact -->
+                </div>
+                <!-- /.col-sm-4 -->
+                <div class="col-sm-4">
+                    <div class="contact">
+                        <div class="contact-icon">
+                            <i class="ion-person"></i>
+                        </div>
+                        <!--<div class="contact-name">
+                            Address
+                        </div>-->
+                        <div class="contact-detail">
+                            Are you looking for a job and want your skills verified?
+                        </div>
+                        <button type="submit" class="btn sr-button client-type btn-default border-radius custom-button dark-blue">Create candidate profile</button>
+                    </div>
+                    <!-- /.contact -->
+                </div>
+                <!-- /.col-sm-4 -->
+                <div class="col-sm-4">
+                    <div class="contact">
+                        <div class="contact-icon">
+                            <i class="ion-briefcase"></i>
+                        </div>
+                        <!--<div class="contact-name">
+                            Address
+                        </div>-->
+                        <div class="contact-detail">
+                            Are your looking for quality candidates to interview?
+                        </div>
+                        <button type="submit" class="btn sr-button client-type btn-default border-radius custom-button dark-blue">List a job</button>
+                    </div>
+                    <!-- /.contact -->
+                </div>
+                <!-- /.col-sm-4 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container -->
+    </section>
+    <!-- /.contacts -->
+    <!--hidden class-->
+    <!--<section class="section wrapper hidden-el" id="hidden">
+        <div class="container">
         <div class="row">
-            <div class="col-md-6 col-centre">
-                <h2 class="section-title">
-                    Sign up
-                </h2>
+            <div class="col-sm-6 col-centre">
                 <div class="form">
                     <div class="input-group">
-                        <input class="form-control border-radius border-right" type="text" value="Chanie Hyde" required>
+                        <input class="form-control border-radius border-right" type="text" value="Chef" required>
                         <span class="input-group-addon  border-radius custom-addon">
                             <i class="ion-person"></i>
                         </span>
                     </div>
                     <div class="input-group">
-                        <input class="form-control border-radius border-right" name="email" type="email" value="chyde@gmail.com" required>
-
+                        <input class="form-control border-radius border-right" name="email" type="email" value="Hospitality" required>
                         <span class="input-group-addon  border-radius custom-addon">
-                            <i class="ion-email"></i>
+                            <i class="ion-briefcase"></i>
+                        </span>
+                    </div>
+
+
+                    <div class="input-group">
+                        <textarea class="form-control border-radius border-right" rows="8">5 year experience as sous chef</textarea>
+                        <span class="input-group-addon border-radius custom-addon">
+                            <i class="ion-edit"></i>
                         </span>
                     </div>
                     <div class="input-group">
-                        <input class="form-control border-radius border-right" type="tel" value="04323420222">
-
+                        <input class="form-control border-radius border-right" type="text" placeholder="Upload cv.." required>
                         <span class="input-group-addon  border-radius custom-addon">
-                            <i class="ion-ios-telephone"></i>
+                            <i class="ion-paperclip"></i>
                         </span>
                     </div>
-                    <div class="input-group">
-                        <input class="form-control border-radius border-right" type="password" value="Password">
-                        <span class="input-group-addon  border-radius custom-addon">
-                            <i class="ion-star"></i>
-                        </span>
-                    </div>
-                    <div class="input-group">
-                        <input class="form-control border-radius border-right" type="password" value="Password">
-                        <span class="input-group-addon  border-radius custom-addon">
-                            <i class="ion-star"></i>
-                        </span>
-                    </div>
-
                 </div>
             </div>
-            <!-- /.col-sm-6 -->
-
-            <!--google api here-->
-            <!--<div class="col-sm-6">
-                <h2 class="section-title">
-                    Find Us Via Google Map
-                </h2>
-                <div id="googleMap"></div>
-            </div>-->
-            <!-- /.col-sm-6 -->
-        </div>
-    </div>
-</section>
+        </div></div>
+    </section>-->
 
 
+    <div class="subscribe section-wrapper">
 
-<section class="contacts column-wrapper">
-    <div class="container">
-        <div class="row">
-            <div class="col-sm-4">
-                <div class="contact">
-                    <div class="contact-icon">
-                        <i class="ion-person-stalker"></i>
-                    </div>
-                    <!--<div class="contact-name">
-                        Address
-                    </div>-->
-                    <div class="contact-detail">
-                        Do you have the right experience to verify skills?
-                    </div>
-                    <button type="submit" class="btn sr-button client-type btn-default border-radius custom-button dark-blue">Create assessor profile</button>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
+                    <button type="submit" [disabled]="!signUpForm.valid" class="btn btn-default border-radius custom-button">JOIN NOW</button>
+
                 </div>
-                <!-- /.contact -->
-            </div>
-            <!-- /.col-sm-4 -->
-            <div class="col-sm-4">
-                <div class="contact">
-                    <div class="contact-icon">
-                        <i class="ion-person"></i>
-                    </div>
-                    <!--<div class="contact-name">
-                        Address
-                    </div>-->
-                    <div class="contact-detail">
-                        Are you looking for a job and want your skills verified?
-                    </div>
-                    <button type="submit" class="btn sr-button client-type btn-default border-radius custom-button dark-blue">Create candidate profile</button>
-                </div>
-                <!-- /.contact -->
-            </div>
-            <!-- /.col-sm-4 -->
-            <div class="col-sm-4">
-                <div class="contact">
-                    <div class="contact-icon">
-                        <i class="ion-briefcase"></i>
-                    </div>
-                    <!--<div class="contact-name">
-                        Address
-                    </div>-->
-                    <div class="contact-detail">
-                        Are your looking for quality candidates to interview?
-                    </div>
-                    <button type="submit" class="btn sr-button client-type btn-default border-radius custom-button dark-blue">List a job</button>
-                </div>
-                <!-- /.contact -->
-            </div>
-            <!-- /.col-sm-4 -->
-        </div>
-        <!-- /.row -->
-    </div>
-    <!-- /.container -->
-</section>
-<!-- /.contacts -->
-
-<!--hidden class-->
-<section class="section wrapper hidden-el" id="hidden">
-    <div class="container">
-    <div class="row">
-        <div class="col-sm-6 col-centre">
-            <div class="form">
-                <div class="input-group">
-                    <input class="form-control border-radius border-right" type="text" value="Chef" required>
-                    <span class="input-group-addon  border-radius custom-addon">
-                        <i class="ion-person"></i>	
-                    </span>
-                </div>
-                <div class="input-group">
-                    <input class="form-control border-radius border-right" name="email" type="email" value="Hospitality" required>
-                    <span class="input-group-addon  border-radius custom-addon">
-                        <i class="ion-briefcase"></i>
-                    </span>
-                </div>
-						
-					
-                <!-- /input-group -->
-                <div class="input-group">
-                    <textarea class="form-control border-radius border-right" rows="8">5 year experience as sous chef</textarea>
-                    <!-- <input type="text" name="text" rows="8" class="form-control border-radius border-right message" placeholder="Write Message"> -->
-                    <span class="input-group-addon border-radius custom-addon">
-                        <i class="ion-edit"></i>
-                    </span>
-                </div>
-                <div class="input-group">
-                    <input class="form-control border-radius border-right" type="text" placeholder="Upload cv.." required>
-                    <span class="input-group-addon  border-radius custom-addon">
-                        <i class="ion-paperclip"></i>
-                    </span>
-                </div>
-            </div>
-        </div>
-    </div></div>
-</section>
-
-
-<div class="subscribe section-wrapper">
-
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
-                <button type="submit" id="signup" data-loading-text="Uploading...." class="btn btn-default border-radius custom-button">JOIN NOW</button>
-
             </div>
         </div>
     </div>
-
-
-
-    <ul class="social-icon">
-        <li><a href="#"><i class="ion-social-facebook"></i></a></li>
-        <li><a href="#"><i class="ion-social-linkedin-outline"></i></a></li>
-        <li><a href="#"><i class="ion-social-googleplus"></i></a></li>
-    </ul>
-</div>
-<!-- /.subscribe -->
+</form>
 
